@@ -11,6 +11,7 @@ Module.register("currentweather",{
 
 	// Default module config.
 	defaults: {
+		autoLocation: false,
 		location: false,
 		locationID: false,
 		appid: "",
@@ -110,7 +111,17 @@ Module.register("currentweather",{
 		this.feelsLike = null;
 		this.loaded = false;
 		this.scheduleUpdate(this.config.initialLoadDelay);
+		
+		if (this.config.autoLocation) {
+			this.sendSocketNotification("AUTO_LOCATION");
+		}
+	},
 
+	socketNotificationReceived: function (notification, payload) {
+		if (notification === "UPDATE_LOCATION") {
+			this.config.location = payload.location;
+			this.scheduleUpdate(this.config.initialLoadDelay);
+		}
 	},
 
 	// add extra information of current weather
