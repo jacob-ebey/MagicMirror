@@ -5,6 +5,13 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ---
 
+## [2.6.1] - 2019-02-09
+
+### Added
+- Ability to set "autoLocation" for the current weather
+- Ability to set "autoLocation" for the weather forcast module
+
+
 ## [2.6.0] - 2019-01-01
 
 ℹ️ **Note:** This update uses new dependencies. Please update using the following command: `git pull && npm install`. If you are having issues updating, make sure you are running the latest version of Node.
